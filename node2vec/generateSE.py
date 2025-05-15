@@ -3,16 +3,16 @@ import numpy as np
 import networkx as nx
 from gensim.models import Word2Vec
 
-is_directed = False #此处改为False
-p = 2
-q = 1
-num_walks = 100
-walk_length = 80
+is_directed = False 
+p = 1
+q = 2
+num_walks = 1000
+walk_length = 100
 dimensions = 64
 window_size = 10
-iter = 1000
-Adj_file = '../data/Adj(BJ500).txt'
-SE_file = '../data/SE(BJ500).txt'
+iter = 50
+Adj_file = '../CUSTOM_P12_Q1/Adj(CUSTOM).txt'
+SE_file = '../CUSTOM_P12_Q1/SE(CUSTOM).txt'
 
 def read_graph(edgelist):
     G = nx.read_edgelist(
@@ -24,7 +24,8 @@ def read_graph(edgelist):
 def learn_embeddings(walks, dimensions, output_file):
     walks = [list(map(str, walk)) for walk in walks]
     model = Word2Vec(
-        walks, vector_size = dimensions)
+        walks, vector_size = dimensions,
+        epochs=iter)
     model.wv.save_word2vec_format(output_file)
 	
     return

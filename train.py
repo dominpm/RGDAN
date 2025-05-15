@@ -54,6 +54,9 @@ args = parser.parse_args()
 LOG_FILE = args.path+'data/log('+args.dataset+')'
 MODEL_FILE = args.path+'data/GMAN('+args.dataset+')'
 
+import os
+os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
+
 start = time.time()
 
 log = open(LOG_FILE, 'w')
@@ -63,6 +66,11 @@ utils.log_string(log, str(args)[10 : -1])
 utils.log_string(log, 'loading data...')
 (trainX, trainTE, trainY, valX, valTE, valY, testX, testTE, testY, SE,
  mean, std) = utils.loadData(args)
+print(f"testX[0], shape = {testX[0].shape} \n{testX[0]}")
+print(f"testY[0], shape = {testY[0].shape} \n{testY[0]}")
+print(f"testTE, shape = {testTE.shape} \n{testTE}")
+print(f"SE, shape = {SE.shape} \n{SE}")
+
 utils.log_string(log, 'trainX: %s\ttrainY: %s' % (trainX.shape, trainY.shape))
 utils.log_string(log, 'valX:   %s\t\tvalY:   %s' % (valX.shape, valY.shape))
 utils.log_string(log, 'testX:  %s\t\ttestY:  %s' % (testX.shape, testY.shape))
@@ -94,7 +102,7 @@ TEmbsize = (24*60//args.time_slot)+7 #number of slots in a day + number of days 
 RGDAN = model.RGDAN(args.K, args.d, SE.shape[1], TEmbsize, args.P, args.L, device, adj_mx, num_nodes).to(device)
 optimizer = torch.optim.Adam(RGDAN.parameters(), lr=args.learning_rate, weight_decay=args.weight_decay)
 scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=args.decay_epoch, gamma=0.3)
-print("初始化的学习率：", optimizer.defaults['lr'])
+print("Learning rate: ", optimizer.defaults['lr'])
 
 
 

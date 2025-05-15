@@ -41,7 +41,24 @@ def seq2instance(data, P, Q):
 
 def loadData(args):
     # Traffic
-    if args.dataset == 'PeMS' or args.dataset == 'METR':
+    if args.dataset == 'CUSTOM':
+        import torch
+
+        path = args.path +"/"
+
+        trainX, trainTE, trainY = torch.load(path + 'train.pt')
+        valX, valTE, valY = torch.load(path + 'val.pt')
+        testX, testTE, testY = torch.load(path + 'test.pt')
+        SE = torch.load(path + 'SE.pt')
+        norm = torch.load(path + 'norm.pt')
+        mean = norm['mean']
+        std = norm['std']
+
+        return (trainX, trainTE, trainY,
+                valX, valTE, valY,
+                testX, testTE, testY,
+                SE, mean, std)
+    elif args.dataset == 'PeMS' or args.dataset == 'METR':
         TRAFFIC_FILE = args.path+'data/'+args.dataset+'.h5'
         SE_FILE = args.path+'data/SE('+args.dataset+').txt'
         df = pd.read_hdf(TRAFFIC_FILE)

@@ -3,12 +3,14 @@ import torch.nn.functional as F
 import torch.nn as nn
 
 
+dropout_rate=.3
+
 class gcn(torch.nn.Module):
     def __init__(self, k, d):
         super(gcn,self).__init__()
         D=k*d
         self.fc = torch.nn.Linear(2*D, D)
-        self.dropout = nn.Dropout(p=0.1)
+        self.dropout = nn.Dropout(p=dropout_rate)
     def forward(self,X, STE, A):
         X = torch.cat((X, STE), dim=-1)
         H = F.gelu(self.fc(X))  # [batch_size, num_steps, num_nodes, K * d]
@@ -144,7 +146,7 @@ class TemporalAttentionModel(torch.nn.Module):
         self.d = d
         self.device =device
         self.softmax = torch.nn.Softmax(dim=-1)
-        self.dropout = nn.Dropout(p=0.1)
+        self.dropout = nn.Dropout(p=dropout_rate)
 
     def forward(self, X, STE, Mask=True):
         X = torch.cat((X, STE), dim=-1)   # [batch_size, num_steps, num_nodes, 2D]
@@ -308,7 +310,7 @@ class RGDAN(torch.nn.Module):
         self.nodevec1 = nn.Parameter(torch.randn(num_nodes, 10).to(device), requires_grad=True).to(device)
         self.nodevec2 = nn.Parameter(torch.randn(10, num_nodes).to(device), requires_grad=True).to(device)
 
-        self.dropout = nn.Dropout(p=0.1)
+        self.dropout = nn.Dropout(p=dropout_rate)
     def forward(self, X, SE, TE):
         adp = F.softmax(F.relu(torch.mm(self.nodevec1, self.nodevec2)), dim=1)#这里是二维，所以可以用1，如果是三维或者四维，那么dim=-1会比较好
 

@@ -1,0 +1,38 @@
+K=8, L=1, P=12, Q=5, adjdata='CUSTOM_P12_Q5/adj_mx.pkl', adjtype='doubletransition', batch_size=64, d=8, dataset='CUSTOM', decay_epoch=20, learning_rate=0.001, load_model='F', max_epoch=100, path='./CUSTOM_P12_Q5/', patience=20, test_ratio=0.2, time_slot=15, train_ratio=0.7, val_ratio=0.1, weight_decay=1e-05
+loading data...
+trainX: torch.Size([1245, 12, 36])	trainY: torch.Size([1245, 5, 36])
+valX:   torch.Size([164, 12, 36])		valY:   torch.Size([164, 5, 36])
+testX:  torch.Size([660, 12, 36])		testY:  torch.Size([660, 5, 36])
+data loaded!
+**** training model ****
+2025-05-15 22:12:50 | epoch: 0001/100, training time: 27.1s, inference time: 1.3s
+train loss: 0.1372, val_loss: 0.0743
+val loss decrease from inf to 0.0743, saving model to ./CUSTOM_P12_Q5/data/GMAN(CUSTOM)
+2025-05-15 22:13:16 | epoch: 0002/100, training time: 24.9s, inference time: 1.2s
+train loss: 0.0914, val_loss: 0.0731
+val loss decrease from 0.0743 to 0.0731, saving model to ./CUSTOM_P12_Q5/data/GMAN(CUSTOM)
+2025-05-15 22:13:47 | epoch: 0003/100, training time: 29.0s, inference time: 1.5s
+train loss: 0.0887, val_loss: 0.0717
+val loss decrease from 0.0731 to 0.0717, saving model to ./CUSTOM_P12_Q5/data/GMAN(CUSTOM)
+2025-05-15 22:14:18 | epoch: 0004/100, training time: 29.7s, inference time: 1.5s
+train loss: 0.0833, val_loss: 0.0610
+val loss decrease from 0.0717 to 0.0610, saving model to ./CUSTOM_P12_Q5/data/GMAN(CUSTOM)
+2025-05-15 22:14:50 | epoch: 0005/100, training time: 30.4s, inference time: 1.4s
+train loss: 0.0606, val_loss: 0.0531
+val loss decrease from 0.0610 to 0.0531, saving model to ./CUSTOM_P12_Q5/data/GMAN(CUSTOM)
+2025-05-15 22:15:20 | epoch: 0006/100, training time: 28.4s, inference time: 1.4s
+train loss: 0.0457, val_loss: 0.0528
+val loss decrease from 0.0531 to 0.0528, saving model to ./CUSTOM_P12_Q5/data/GMAN(CUSTOM)
+2025-05-15 22:15:49 | epoch: 0007/100, training time: 28.3s, inference time: 1.3s
+train loss: 0.0415, val_loss: 0.0558
+2025-05-15 22:16:19 | epoch: 0008/100, training time: 28.6s, inference time: 1.5s
+train loss: 0.0397, val_loss: 0.0522
+val loss decrease from 0.0528 to 0.0522, saving model to ./CUSTOM_P12_Q5/data/GMAN(CUSTOM)
+2025-05-15 22:16:49 | epoch: 0009/100, training time: 28.6s, inference time: 1.4s
+train loss: 0.0385, val_loss: 0.0573
+2025-05-15 22:17:22 | epoch: 0010/100, training time: 30.6s, inference time: 1.9s
+train loss: 0.0384, val_loss: 0.0531
+2025-05-15 22:17:54 | epoch: 0011/100, training time: 30.0s, inference time: 1.5s
+train loss: 0.0382, val_loss: 0.0529
+2025-05-15 22:18:23 | epoch: 0012/100, training time: 27.5s, inference time: 1.8s
+train loss: 0.0372, val_loss: 0.0564

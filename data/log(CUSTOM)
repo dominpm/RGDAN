@@ -1,0 +1,7 @@
+K=8, L=3, P=10, Q=5, adjdata='CUSTOM_DATA/adj_mx.pkl', adjtype='doubletransition', batch_size=64, d=8, dataset='CUSTOM', decay_epoch=20, learning_rate=0.001, load_model='F', max_epoch=100, path='./', patience=20, test_ratio=0.2, time_slot=15, train_ratio=0.7, val_ratio=0.1, weight_decay=1e-05
+loading data...
+trainX: torch.Size([1261, 10, 36])	trainY: torch.Size([1261, 1, 36])
+valX:   torch.Size([168, 10, 36])		valY:   torch.Size([168, 1, 36])
+testX:  torch.Size([672, 10, 36])		testY:  torch.Size([672, 1, 36])
+data loaded!
+**** training model ****

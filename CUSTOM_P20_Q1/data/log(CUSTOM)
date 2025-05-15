@@ -1,0 +1,30 @@
+K=8, L=2, P=20, Q=1, adjdata='CUSTOM_P20_Q1/adj_mx.pkl', adjtype='doubletransition', batch_size=64, d=8, dataset='CUSTOM', decay_epoch=20, learning_rate=0.001, load_model='F', max_epoch=100, path='./CUSTOM_P20_Q1/', patience=20, test_ratio=0.2, time_slot=15, train_ratio=0.7, val_ratio=0.1, weight_decay=1e-05
+loading data...
+trainX: torch.Size([1241, 20, 36])	trainY: torch.Size([1241, 1, 36])
+valX:   torch.Size([164, 20, 36])		valY:   torch.Size([164, 1, 36])
+testX:  torch.Size([656, 20, 36])		testY:  torch.Size([656, 1, 36])
+data loaded!
+**** training model ****
+2025-05-15 22:48:40 | epoch: 0001/100, training time: 29.0s, inference time: 1.5s
+train loss: 0.1422, val_loss: 0.0913
+val loss decrease from inf to 0.0913, saving model to ./CUSTOM_P20_Q1/data/GMAN(CUSTOM)
+2025-05-15 22:49:10 | epoch: 0002/100, training time: 29.3s, inference time: 1.5s
+train loss: 0.1049, val_loss: 0.0846
+val loss decrease from 0.0913 to 0.0846, saving model to ./CUSTOM_P20_Q1/data/GMAN(CUSTOM)
+2025-05-15 22:49:41 | epoch: 0003/100, training time: 29.2s, inference time: 1.5s
+train loss: 0.0992, val_loss: 0.0802
+val loss decrease from 0.0846 to 0.0802, saving model to ./CUSTOM_P20_Q1/data/GMAN(CUSTOM)
+2025-05-15 22:50:13 | epoch: 0004/100, training time: 30.6s, inference time: 1.6s
+train loss: 0.0749, val_loss: 0.0479
+val loss decrease from 0.0802 to 0.0479, saving model to ./CUSTOM_P20_Q1/data/GMAN(CUSTOM)
+2025-05-15 22:50:45 | epoch: 0005/100, training time: 30.2s, inference time: 1.9s
+train loss: 0.0504, val_loss: 0.0442
+val loss decrease from 0.0479 to 0.0442, saving model to ./CUSTOM_P20_Q1/data/GMAN(CUSTOM)
+2025-05-15 22:51:17 | epoch: 0006/100, training time: 30.2s, inference time: 1.6s
+train loss: 0.0419, val_loss: 0.0494
+2025-05-15 22:51:49 | epoch: 0007/100, training time: 30.3s, inference time: 1.5s
+train loss: 0.0379, val_loss: 0.0507
+2025-05-15 22:52:22 | epoch: 0008/100, training time: 32.0s, inference time: 1.5s
+train loss: 0.0363, val_loss: 0.0501
+2025-05-15 22:52:54 | epoch: 0009/100, training time: 29.9s, inference time: 1.4s
+train loss: 0.0351, val_loss: 0.0529
